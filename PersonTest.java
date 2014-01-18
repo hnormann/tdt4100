@@ -1,4 +1,4 @@
-package stateandbehavior;
+package encapsulation;
 
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
@@ -77,5 +77,9 @@ public class PersonTest extends TestCase {
 		assertEquals('F', person.getGender());
 		person.setGender('O');
 		assertEquals('F', person.getGender());
+	}
+	
+	public static void main(String[] args) {
+		JexStandalone.main(PersonTest.class);
 	}
 }
