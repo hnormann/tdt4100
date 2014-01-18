@@ -1,4 +1,4 @@
-package stateandbehavior;
+package encapsulation;
 
 public class Person {
 	private String name;
