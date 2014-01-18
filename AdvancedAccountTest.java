@@ -1,4 +1,4 @@
-package stateandbehavior;
+package encapsulation;
 
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
@@ -89,6 +89,6 @@ public class AdvancedAccountTest extends TestCase {
 	}
 
 	public static void main(String[] args) {
-		JexStandalone.main(AccountTest.class);
+		JexStandalone.main(AdvancedAccountTest.class);
 	}
 }
