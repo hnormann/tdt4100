@@ -1,4 +1,4 @@
-package stateandbehavior;
+package encapsulation;
 
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
@@ -69,5 +69,9 @@ public class PersonTest2 extends TestCase {
 			K2 = 0;
 		}
 		return K1 + "" + K2;
+	}
+	
+	public static void main(String[] args) {
+		JexStandalone.main(PersonTest2.class);
 	}
 }
