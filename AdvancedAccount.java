@@ -1,4 +1,4 @@
-package stateandbehavior;
+package encapsulation;
 
 public class AdvancedAccount {
 	private double balance;
@@ -32,7 +32,7 @@ public class AdvancedAccount {
 			balance -= amount;
 			return amount;
 		} else {
-			throw new IllegalArgumentException("Dette bel¿pet er for stort");
+			throw new IllegalArgumentException("Dette belï¿½pet er for stort");
 		}
 	}
 	
