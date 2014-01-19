@@ -82,4 +82,8 @@ public class PersonTest extends TestCase {
 	public static void main(String[] args) {
 		JexStandalone.main(PersonTest.class);
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

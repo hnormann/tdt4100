@@ -91,4 +91,8 @@ public class AdvancedAccountTest extends TestCase {
 	public static void main(String[] args) {
 		JexStandalone.main(AdvancedAccountTest.class);
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

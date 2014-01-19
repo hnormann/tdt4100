@@ -32,7 +32,11 @@ public class AdvancedAccount {
 			balance -= amount;
 			return amount;
 		} else {
+<<<<<<< HEAD
 			throw new IllegalArgumentException("Dette bel¿pet er for stort");
+=======
+			throw new IllegalArgumentException("Dette belï¿½pet er for stort");
+>>>>>>> origin/master
 		}
 	}
 	
