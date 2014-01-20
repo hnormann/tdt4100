@@ -7,7 +7,7 @@ import no.hal.jex.standalone.JexStandalone;
 import junit.framework.TestCase;
 
 @JExercise(
-	description="An Account must contain two double fields, balance and interestRate, and methods for depositing amounts and computing and adding interest."
+	description="A Person must contain a name, an email, a birthday, gender and social security number. These attributes should be properly encapsulated and have getters and setters that ensure valid attributes"
 )
 public class PersonTest2 extends TestCase {
 

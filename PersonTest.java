@@ -6,7 +6,7 @@ import no.hal.jex.standalone.JexStandalone;
 import junit.framework.TestCase;
 
 @JExercise(
-	description="An Account must contain two double fields, balance and interestRate, and methods for depositing amounts and computing and adding interest."
+	description="A Person must contain a name, an email, a birthday and gender. These attributes should be properly encapsulated and have getters and setters that ensure valid attributes"
 )
 public class PersonTest extends TestCase {
 
@@ -124,7 +124,7 @@ public class PersonTest extends TestCase {
 	
 	@JExercise(
 			tests="void setGender(String)",
-			description="The setGender(String) should set gedner to input argument, given that the gender is on a valid format"
+			description="The setGender(String) should set gender to input argument, given that the gender is on a valid format"
 	)	
 	public void testSetGender() {
 		try {
