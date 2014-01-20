@@ -20,10 +20,10 @@ public class AccountTest extends TestCase {
 	}
 	
 	@JExercise(
-			tests="AdvancedAccount(double, double)",
-			description="The AdvancedAccount(double, double) constructor sets the state to argument values if positive, otherwise 0."
+			tests="Account(double, double)",
+			description="The Account(double, double) constructor sets the state to argument values if positive, otherwise cast an IllegalArgumentException."
 	)
-	public void testAdvancedAccount() {
+	public void testAccount() {
 		account = new Account(100, 5);
 		assertEquals(100.0d, account.getBalance(), epsilon);
 		assertEquals(5.0d, account.getInterestRate(), epsilon);
@@ -32,7 +32,8 @@ public class AccountTest extends TestCase {
 			fail();
 		} catch (Exception e) {
 			assertEquals(100.0d, account.getBalance(), epsilon);
-			assertEquals(5.0d, account.getInterestRate(), epsilon);			
+			assertEquals(5.0d, account.getInterestRate(), epsilon);	
+			assertTrue(e instanceof IllegalArgumentException);
 		}
 		
 		try {
@@ -40,7 +41,8 @@ public class AccountTest extends TestCase {
 			fail();
 		} catch (Exception e) {
 			assertEquals(100.0d, account.getBalance(), epsilon);
-			assertEquals(5.0d, account.getInterestRate(), epsilon);			
+			assertEquals(5.0d, account.getInterestRate(), epsilon);
+			assertTrue(e instanceof IllegalArgumentException);
 		}
 	}
 
