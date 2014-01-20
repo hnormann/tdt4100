@@ -154,7 +154,7 @@ public class PersonTest2 extends TestCase {
 			tests="void setSSN(String)",
 			description="The setSSN(String) should set social security number to input argument, given that the SSN is valid"
 	)	
-	public void testSetSSSN() {
+	public void testSetSSN() {
 		try {
 			person.setSSN("010194111" + generateValid(1, 1, 1, "010194"));
 			assertEquals("01019411156", person.getSocialsec());			
