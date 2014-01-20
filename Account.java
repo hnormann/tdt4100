@@ -5,13 +5,18 @@ public class Account {
 	private double interestRate;
 	
 	public Account(double balance, double interestRate) {
-		this.balance = balance > 0 ? balance : 0;
-		this.interestRate = interestRate > 0 ? interestRate : 0;
+		if (balance < 0 || interestRate < 0 ) {
+			throw new IllegalArgumentException("Input must be positive!");
+		}
+		this.balance = balance;
+		this.interestRate = interestRate;
 	}
 	
 	public void deposit(double amount) {
 		if (amount > 0) {
 			balance += amount;
+		} else {
+			throw new IllegalArgumentException("Not a positive amount!");
 		}
 	}
 	
@@ -20,7 +25,11 @@ public class Account {
 	}
 
 	public void setInterestRate(double interestRate) {
-		this.interestRate = interestRate;
+		if (interestRate > 0) {
+			this.interestRate = interestRate;			
+		} else {
+			throw new IllegalArgumentException("Not a positive interest rate!");
+		}
 	}
 
 	public double getBalance() {
@@ -32,7 +41,7 @@ public class Account {
 			balance -= amount;
 			return amount;
 		} else {
-			throw new IllegalArgumentException("Dette bel¿pet er for stort");
+			throw new IllegalStateException("Your account does not have coverage, please try a smaller amount");
 		}
 	}
 	
