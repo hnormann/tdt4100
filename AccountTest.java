@@ -5,7 +5,7 @@ import no.hal.jex.standalone.JexStandalone;
 import junit.framework.TestCase;
 
 @JExercise(
-	description="An Account must contain two double fields, balance and interestRate, and methods for depositing amounts and computing and adding interest."
+	description="An Account must contain two double fields, balance and interestRate, and methods for getting balance as well as depositing and withdrawing amounts."
 )
 public class AccountTest extends TestCase {
 
