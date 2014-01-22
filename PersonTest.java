@@ -13,7 +13,6 @@ public class PersonTest extends TestCase {
 	private Person person;
 	private Date birthday;
 
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();

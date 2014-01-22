@@ -11,7 +11,8 @@ public class Person {
 
 	private static int[] factors1 = {3, 7, 6, 1, 8, 9, 4, 5, 2}, factors2 = {5, 
 	4, 3, 2, 7, 6, 5, 4, 3, 2}; 
-	 
+	
+	// Help method to compute control digits for SSN
 	private static int computeControlDigit(String digits, int[] factors) { 
 		int sum = 0; 
 		for (int i = 0; i < factors.length; i++) { 
@@ -20,7 +21,7 @@ public class Person {
 		sum = 11 - (sum % 11);
 		return sum == 11 ? 0 : sum; 
 	} 
-	 
+	
 	private static boolean checkDigits(String digits, int pos, int num) { 
 		return (num / 10 == digits.charAt(pos) - '0' && num % 10 == 
 		digits.charAt(pos + 1) - '0'); 
@@ -62,7 +63,7 @@ public class Person {
 	 
 	public void setSSN(String socialsec) { 
 		if (! validatePID(socialsec)) { 
-			throw new IllegalArgumentException(socialsec + " is not a valid PID for " + gender + " and " + birthday); 
+			throw new IllegalArgumentException(socialsec + " is not a valid social security number for " + gender + " and " + birthday); 
 		} 
 		this.socialsec = socialsec; 
 	}
@@ -126,26 +127,18 @@ public class Person {
 	}
 	
 	private boolean checkValidEmail(String email) {
-		boolean valid = email.contains("@");
-		valid = getNumberOfAlphas(email) == 1;
+		String[] parts = email.split("\\@");
+		boolean valid = parts.length == 2;
 		if (valid) {
-			valid = Character.isLetter(email.charAt(email.indexOf("@")+1));
-			valid = valid && email.substring(email.indexOf("@")).contains(".");	
-			valid = valid && email.substring(0, email.indexOf("@")).contains(".");
+			String[] domains = parts[1].split("\\.");
+			valid = domains.length == 2;
 			if (valid) {
-				valid = email.substring(email.lastIndexOf('.')).length() > 2;
-				valid = email.substring(0, email.indexOf('.')).length() > 1;
-				valid = email.substring(email.indexOf('.'), email.indexOf("@")).length() > 2;
+				valid = valid && domains[0].length() > 1 && domains[1].length() > 1;
 			}
 		}
-		return email.length() > 5 && valid;
-	}
-	
-	private int getNumberOfAlphas(String email) {
-		int sum = 0;
-		for (char a : email.toCharArray()) {
-			sum += a == '@' ? 1 : 0;
+		if (valid && !name.toLowerCase().equals(parts[0].replace('.', ' ').toLowerCase())) {
+			throw new IllegalStateException("Name and email must match!");						
 		}
-		return sum;
+		return valid;
 	}
 }

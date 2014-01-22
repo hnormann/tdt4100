@@ -13,13 +13,13 @@ public class PersonTest2 extends PersonTest {
 	private static int[] factors1 = {3, 7, 6, 1, 8, 9, 4, 5, 2}, factors2 = {5, 
 		4, 3, 2, 7, 6, 5, 4, 3, 2}; 
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 		person = new Person();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@JExercise(
 			tests="void setSSN(String)",
 			description="The setSSN(String) should set social security number to input argument, given that the SSN is valid"
