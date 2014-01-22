@@ -75,8 +75,8 @@ public class AccountTest extends TestCase {
 	)
 	public void testWithdraw() {
 		try {
-			double i = account.withdraw(50);
-			assertEquals(50.0d, i, epsilon);
+			account.withdraw(50);
+			assertEquals(50.0d, account.getBalance(), epsilon);
 		} catch (Exception e){
 			fail();
 		}

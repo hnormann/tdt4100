@@ -36,10 +36,9 @@ public class Account {
 		return balance;
 	}
 
-	public double withdraw(double amount) throws Exception {
+	public void withdraw(double amount) throws Exception {
 		if (amount <= balance) {
 			balance -= amount;
-			return amount;
 		} else {
 			throw new IllegalStateException("Your account does not have coverage, please try a smaller amount");
 		}
