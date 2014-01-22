@@ -1,5 +1,6 @@
 package encapsulation;
 
+import java.util.Date;
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
 
@@ -8,14 +9,24 @@ import no.hal.jex.standalone.JexStandalone;
 )
 public class PersonTest2 extends PersonTest {
 
+	private Person person;
 	private static int[] factors1 = {3, 7, 6, 1, 8, 9, 4, 5, 2}, factors2 = {5, 
 		4, 3, 2, 7, 6, 5, 4, 3, 2}; 
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	protected void setUp() throws Exception {
+		super.setUp();
+		person = new Person();
+	}
 	
 	@JExercise(
 			tests="void setSSN(String)",
 			description="The setSSN(String) should set social security number to input argument, given that the SSN is valid"
 	)	
 	public void testSetSSN() {
+		person.setBirthday(new Date(94, 0, 1));
+		person.setGender('M');
 		try {
 			person.setSSN("010194111" + generateValid(1, 1, 1, "010194"));
 			assertEquals("01019411156", person.getSocialsec());			
