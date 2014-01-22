@@ -45,6 +45,22 @@ public class AccountTest extends TestCase {
 			assertTrue(e instanceof IllegalArgumentException);
 		}
 	}
+	
+	@JExercise(
+			tests="void setInterestRate(double)",
+			description="The setInterestRate(double) method sets the interest rate to the input argument, given that the argument is positive "
+	)
+	public void testSetInterestRate() {
+		account.setInterestRate(7);
+		assertEquals(7.0d, account.getInterestRate(), epsilon);
+		try {
+			account.setInterestRate(-2);
+			fail();
+		} catch (Exception e) {
+			assertEquals(7.0d, account.getInterestRate(), epsilon);
+		}
+	}
+	
 
 	@JExercise(
 		tests="void deposit(double)",
