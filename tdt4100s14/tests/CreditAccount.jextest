@@ -51,4 +51,10 @@ test inheritance.CreditAccount
 		state {
 			getCreditLine() == 5000.0
 		}
+		"Tester ny kredittlinje nŒr saldoen er for lav" -- withdraw(4000.0), setCreditLine(3000.0) throws IllegalStateException
+		-->
+		state {
+			getBalance() == -4000.0
+			getCreditLine() == 5000.0
+		}
 	}

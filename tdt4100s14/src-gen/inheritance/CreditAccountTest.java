@@ -59,7 +59,7 @@ public class CreditAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "CreditAccount(double);void setCreditLine(double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Tester ny kredittlinje: setCreditLine(5000.0)</li>\n\t\t<li>Tester negativ kredittlinje: setCreditLine(-5000.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "CreditAccount(double);void setCreditLine(double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Tester ny kredittlinje: setCreditLine(5000.0)</li>\n\t\t<li>Tester negativ kredittlinje: setCreditLine(-5000.0)</li>\n\t\t<li>Tester ny kredittlinje n\u00E5r saldoen er for lav: withdraw(4000.0), setCreditLine(3000.0)</li>\n\t\t</ul>\n")
   public void testSetCreditLine() {
     _test__setCreditLine_transitions0_source_state(sub);
     _transition_exprAction__setCreditLine_transitions0_actions0(sub);
@@ -71,6 +71,14 @@ public class CreditAccountTest extends TestCase {
       assertTrue("IllegalArgumentException should be thrown after setCreditLine(-5000.0)", e instanceof IllegalArgumentException);
     }
     _test__setCreditLine_transitions2_effect_state(sub);
+    try {
+      _transition_exprAction__setCreditLine_transitions3_actions0(sub);
+      _transition_exprAction__setCreditLine_transitions3_actions1(sub);
+      fail("IllegalStateException should be thrown after withdraw(4000.0), setCreditLine(3000.0)");
+    } catch (Exception e_1) {
+      assertTrue("IllegalStateException should be thrown after withdraw(4000.0), setCreditLine(3000.0)", e_1 instanceof IllegalStateException);
+    }
+    _test__setCreditLine_transitions4_effect_state(sub);
     
   }
   
@@ -283,6 +291,42 @@ public class CreditAccountTest extends TestCase {
   }
   
   private void _test__setCreditLine_transitions2_effect_state_objectTests0_test(final CreditAccount it) {
+    
+    double _creditLine = it.getCreditLine();
+    assertEquals("getCreditLine() == 5000.0 failed", 5000.0, _creditLine);
+    
+  }
+  
+  private void _transition_exprAction__setCreditLine_transitions3_actions0(final CreditAccount it) {
+    try {
+      
+      it.withdraw(4000.0);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("withdraw(4000.0) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__setCreditLine_transitions3_actions1(final CreditAccount it) {
+    try {
+      
+      it.setCreditLine(3000.0);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("setCreditLine(3000.0) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__setCreditLine_transitions4_effect_state(final CreditAccount it) {
+    _test__setCreditLine_transitions4_effect_state_objectTests0_test(sub);
+    
+  }
+  
+  private void _test__setCreditLine_transitions4_effect_state_objectTests0_test(final CreditAccount it) {
+    
+    double _minus = (-4000.0);
+    double _balance = it.getBalance();
+    assertEquals("getBalance() == -4000.0 failed", _minus, _balance);
     
     double _creditLine = it.getCreditLine();
     assertEquals("getCreditLine() == 5000.0 failed", 5000.0, _creditLine);
