@@ -27,8 +27,13 @@ public class CardHandTest extends TestCase {
     _transition_exprAction__addCard_transitions0_actions0(sub);
     _transition_exprAction__addCard_transitions0_actions1(sub);
     _test__addCard_transitions0_effect_state(sub);
-    _transition_exprAction__addCard_transitions1_actions0(sub);
-    _test__addCard_transitions1_effect_state(sub);
+    try {
+      _transition_exprAction__addCard_transitions1_actions0(sub);
+      fail("IllegalStateException should be thrown after addCard(new Card('S', 3))");
+    } catch (Exception e) {
+      assertTrue("IllegalStateException should be thrown after addCard(new Card('S', 3))", e instanceof IllegalStateException);
+    }
+    _test__addCard_transitions2_effect_state(sub);
     
   }
   
@@ -94,15 +99,15 @@ public class CardHandTest extends TestCase {
     
   }
   
-  private void _test__addCard_transitions1_effect_state(final CardHand it) {
-    _test__addCard_transitions1_effect_state_objectTests0_test(sub);
+  private void _test__addCard_transitions2_effect_state(final CardHand it) {
+    _test__addCard_transitions2_effect_state_objectTests0_test(sub);
     
   }
   
-  private void _test__addCard_transitions1_effect_state_objectTests0_test(final CardHand it) {
+  private void _test__addCard_transitions2_effect_state_objectTests0_test(final CardHand it) {
     
     int _cardCount = it.getCardCount();
-    assertEquals("getCardCount() == 2 failed after addCard(new Card('S', 3))", 2, _cardCount);
+    assertEquals("getCardCount() == 2 failed", 2, _cardCount);
     
   }
   
