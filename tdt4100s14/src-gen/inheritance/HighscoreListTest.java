@@ -38,7 +38,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);void addItem(Comparable)", description = "<h3>Tester \u00E5 legge til nye elementer i listen</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Legger til 1. resultat: sub.addItem(5)</li>\n\t\t<li>Legger til 2. resultat: sub.addItem(3)</li>\n\t\t<li>Legger til bedre resultat: sub.addItem(2)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addItem(Comparable)", description = "<h3>Tester \u00E5 legge til nye elementer i listen</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Legger til f\u00F8rste resultat: sub.addItem(5)</li>\n\t\t<li>Legger til siste resultat: sub.addItem(3)</li>\n\t\t<li>Legger til bedre resultat: sub.addItem(2)</li>\n\t\t</ul>\n")
   public void testAddItem() {
     _transition_exprAction__addItem_transitions0_actions0();
     _test__addItem_transitions0_effect_state();
@@ -49,7 +49,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);void addItem(Comparable)", description = "<h3>Tester \u00E5 legge til, fjerne og oppdatere observat\u00F8rer</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Legge til ListListener og oppdater liste: sub.addListListener(l1), sub.addListListener(l2), sub.addItem(3)</li>\n\t\t<li>Fjerne listListener og sjekke lister: sub.removeListListener(l1), sub.addItem(1)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addItem(Comparable)", description = "<h3>Tester \u00E5 legge til, fjerne og oppdatere observat\u00F8rer</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Legger til observat\u00F8rer og endrer liste: sub.addListListener(l1), sub.addListListener(l2), sub.addItem(3)</li>\n\t\t<li>Fjerner observat\u00F8r og endrer liste: sub.removeListListener(l1), sub.addItem(1)</li>\n\t\t</ul>\n")
   public void testListListeners() {
     _transition_exprAction__listListeners_transitions0_actions0();
     _transition_exprAction__listListeners_transitions0_actions1();

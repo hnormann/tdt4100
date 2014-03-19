@@ -4,11 +4,11 @@ test inheritance.HighscoreList
 		
 	
 	sequence addItem "Tester Œ legge til nye elementer i listen" {
-		"Legger til 1. resultat" -- sub.addItem(5) -->
+		"Legger til f¿rste resultat" -- sub.addItem(5) -->
 		state {
 			sub.list.get(0) == 5
 		}
-		"Legger til 2. resultat" -- sub.addItem(3) -->
+		"Legger til siste resultat" -- sub.addItem(3) -->
 		state {
 			sub.list.get(0) == 3
 			sub.list.get(1) == 5
@@ -21,12 +21,12 @@ test inheritance.HighscoreList
 	}
 	
 	sequence listListeners "Tester Œ legge til, fjerne og oppdatere observat¿rer" {
-		"Legge til ListListener og oppdater liste" -- sub.addListListener(l1), sub.addListListener(l2), sub.addItem(3) -->
+		"Legger til observat¿rer og endrer liste" -- sub.addListListener(l1), sub.addListListener(l2), sub.addItem(3) -->
 		state {
 			l1.list.get(0) == 3
 			l2.list.get(0) == 3
 		}
-		"Fjerne listListener og sjekke lister" -- sub.removeListListener(l1), sub.addItem(1) -->
+		"Fjerner observat¿r og endrer liste" -- sub.removeListListener(l1), sub.addItem(1) -->
 		state {
 			l1.list.get(0) == 3
 			l1.list.size() == 1
